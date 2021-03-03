@@ -21,7 +21,6 @@ class Mahony {
 private:
 	float twoKp;		// 2 * proportional gain (Kp)
 	float twoKi;		// 2 * integral gain (Ki)
-	float q0, q1, q2, q3;	// quaternion of sensor frame relative to auxiliary frame
 	float integralFBx, integralFBy, integralFBz;  // integral error terms scaled by Ki
 	float invSampleFreq;
 	float roll, pitch, yaw;
@@ -61,6 +60,8 @@ public:
 		if (!anglesComputed) computeAngles();
 		return yaw;
 	}
+	
+	float q0, q1, q2, q3;	// quaternion of sensor frame relative to auxiliary frame
 };
 
 #endif
